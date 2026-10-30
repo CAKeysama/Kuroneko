@@ -206,7 +206,7 @@ Nada flutua: as coisas penduram. As etiquetas e a placa recebem uma sombra curta
 
 ## Shapes
 
-Papel cortado e plástico de loja. Etiquetas, tags e recibo têm cantos de 2px; botões, mapa e placa grande têm 6px; o círculo completo fica para o disco do logo, a lâmpada e os furos da placa. O recibo tem a borda de baixo serrilhada. As etiquetas ficam inclinadas entre −1° e 1° e presas por um clipe translúcido no trilho.
+Papel cortado e plástico de loja. Etiquetas, tags e recibo têm cantos de 2px; botões e placa grande têm 6px; o círculo completo fica para o disco do logo, a lâmpada e os furos da placa. O recibo tem a borda de baixo serrilhada. As etiquetas ficam inclinadas entre −1° e 1° e presas por um clipe translúcido no trilho.
 
 ## Components
 

@@ -378,10 +378,6 @@
     grid-template-columns: 1fr 1fr;
     column-gap: var(--space-9);
   }
-
-  .kn-route .kn-map {
-    aspect-ratio: 16 / 11;
-  }
 }
 
 /* ── Ask before you go ───────────────────────── */
