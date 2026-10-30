@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T20:40:00Z",
+  "title": "Design System: Kuro Neko",
+  "extensions": {
+    "colorMeta": {
+      "red-logo": {
+        "role": "primary",
+        "displayName": "Vermelho Gatinho",
+        "canonical": "#d7433f",
+        "oklch": "oklch(59.5% 0.185 26.1)",
+        "tonalRamp": [
+          "#1c0202",
+          "#450b0b",
+          "#741919",
+          "#a62928",
+          "#d24d47",
+          "#ea837a",
+          "#ffb5ad",
+          "#ffe2dd"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Vermelho Placa",
+        "canonical": "#c8352f",
+        "oklch": "oklch(55.4% 0.185 27.4)",
+        "tonalRamp": [
+          "#1c0202",
+          "#450c09",
+          "#741a16",
+          "#a52924",
+          "#d24e45",
+          "#ea8378",
+          "#ffb5ab",
+          "#ffe2dc"
+        ]
+      },
+      "red-deep": {
+        "role": "primary",
+        "displayName": "Vermelho Lacre",
+        "canonical": "#ad2318",
+        "oklch": "oklch(48.7% 0.175 29.6)",
+        "tonalRamp": [
+          "#1b0302",
+          "#440e09",
+          "#711e16",
+          "#a22f23",
+          "#ce5344",
+          "#e68677",
+          "#fcb7ab",
+          "#ffe3dc"
+        ]
+      },
+      "red-shade": {
+        "role": "primary",
+        "displayName": "Sombra do Trilho",
+        "canonical": "#7e1a14",
+        "oklch": "oklch(39.0% 0.136 28.6)",
+        "tonalRamp": [
+          "#180504",
+          "#3e1611",
+          "#682922",
+          "#953f35",
+          "#bf6055",
+          "#d98e83",
+          "#f2bbb3",
+          "#ffe6e1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Pelo",
+        "canonical": "#1e1b20",
+        "oklch": "oklch(22.8% 0.011 312.0)",
+        "tonalRamp": [
+          "#0c0b0c",
+          "#252326",
+          "#413f42",
+          "#5f5c61",
+          "#827f84",
+          "#a6a3a8",
+          "#cbcacd",
+          "#efeef0"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Fumaça",
+        "canonical": "#57525b",
+        "oklch": "oklch(44.7% 0.016 310.3)",
+        "tonalRamp": [
+          "#0c0b0d",
+          "#252327",
+          "#413e44",
+          "#605c64",
+          "#837e87",
+          "#a7a3aa",
+          "#ccc9ce",
+          "#efeef1"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Risco",
+        "canonical": "#d9d5d8",
+        "oklch": "oklch(87.7% 0.006 334.0)",
+        "tonalRamp": [
+          "#0c0b0b",
+          "#252325",
+          "#413f41",
+          "#5f5c5f",
+          "#827f81",
+          "#a6a4a6",
+          "#cccacb",
+          "#efeeef"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cinza Vitrine",
+        "canonical": "#f2f0f1",
+        "oklch": "oklch(95.7% 0.003 345.2)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#403f40",
+          "#5e5d5e",
+          "#818080",
+          "#a5a4a5",
+          "#cbcaca",
+          "#efeeee"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Etiqueta",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#808080",
+          "#a4a4a4",
+          "#cacaca",
+          "#eeeeee"
+        ]
+      },
+      "lamp": {
+        "role": "secondary",
+        "displayName": "Lâmpada",
+        "canonical": "#f4b400",
+        "oklch": "oklch(80.8% 0.166 82.7)",
+        "tonalRamp": [
+          "#140800",
+          "#361e00",
+          "#5c3700",
+          "#845200",
+          "#ac7500",
+          "#c89d48",
+          "#e4c690",
+          "#feeccd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título do topo, uma vez por página."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de seção."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Nome da prateleira e rua."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Frase logo após um título."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido até 62ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tags e cabeçalhos de tabela."
+      },
+      "japanese": {
+        "displayName": "Japonês",
+        "purpose": "Kanji da placa e nomes verticais nas etiquetas."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-label",
+        "value": "0 1px 0 rgb(30 27 32 / 0.06), 0 10px 18px -12px rgb(30 27 32 / 0.45)",
+        "purpose": "Etiqueta POP pendurada."
+      },
+      {
+        "name": "shadow-plaque",
+        "value": "0 2px 2px rgb(30 27 32 / 0.12), 0 14px 22px -14px rgb(30 27 32 / 0.55)",
+        "purpose": "Placa da porta."
+      },
+      {
+        "name": "shadow-press",
+        "value": "inset 0 2px 0 rgb(0 0 0 / 0.18)",
+        "purpose": "Botão pressionado."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Toda chegada."
+      },
+      {
+        "name": "dur-instant",
+        "value": "120ms",
+        "purpose": "Botão afundando."
+      },
+      {
+        "name": "dur-quick",
+        "value": "220ms",
+        "purpose": "Hover de cor, seta do link."
+      },
+      {
+        "name": "dur-move",
+        "value": "420ms",
+        "purpose": "Etiqueta endireitando, barra de atalhos."
+      },
+      {
+        "name": "kn-swing",
+        "value": "1300ms keyframes",
+        "purpose": "Placa balança quando o status chega."
+      },
+      {
+        "name": "kn-flip",
+        "value": "520ms keyframes",
+        "purpose": "Placa vira quando o horário muda."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal sobre o Cinza Vitrine.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\"/><circle cx=\"12\" cy=\"9.5\" r=\"2.5\"/></svg>Como chegar</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:8px 20px;border:2px solid #1e1b20;border-radius:6px;background:#1e1b20;color:#fff;font:800 16px/1.2 'M PLUS 2',system-ui,sans-serif;text-decoration:none;transition:background-color .22s cubic-bezier(.16,1,.3,1),border-color .22s,transform .12s}.ds-btn:hover{background:#c8352f;border-color:#c8352f}.ds-btn:active{transform:translateY(1px);box-shadow:inset 0 2px 0 rgb(0 0 0/.18)}.ds-btn:focus-visible{outline:3px solid #1e1b20;outline-offset:3px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Ação secundária, contorno na cor do texto.",
+      "html": "<button class=\"ds-btn-line\" type=\"button\">Copiar endereço</button>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;min-height:48px;padding:8px 20px;border:2px solid #1e1b20;border-radius:6px;background:transparent;color:#1e1b20;font:800 16px/1.2 'M PLUS 2',system-ui,sans-serif;cursor:pointer;transition:background-color .22s cubic-bezier(.16,1,.3,1),color .22s}.ds-btn-line:hover{background:#1e1b20;color:#fff}.ds-btn-line:focus-visible{outline:3px solid #1e1b20;outline-offset:3px}"
+    },
+    {
+      "name": "Label Button on Red",
+      "kind": "button",
+      "refersTo": "button-label",
+      "description": "Ação principal sobre o Vermelho Placa.",
+      "html": "<div class=\"ds-red\"><a class=\"ds-btn-label\" href=\"#\">Como chegar</a></div>",
+      "css": ".ds-red{background:#c8352f;padding:24px}.ds-btn-label{display:inline-flex;align-items:center;min-height:48px;padding:8px 20px;border:2px solid #fff;border-radius:6px;background:#fff;color:#1e1b20;font:800 16px/1.2 'M PLUS 2',system-ui,sans-serif;text-decoration:none}.ds-btn-label:hover{background:#1e1b20;border-color:#1e1b20;color:#fff}.ds-btn-label:focus-visible{outline:3px solid #fff;outline-offset:3px}"
+    },
+    {
+      "name": "Door Plaque",
+      "kind": "custom",
+      "refersTo": "plaque-open",
+      "description": "Placa 営業中/準備中 que mostra se a loja está aberta.",
+      "html": "<div class=\"ds-plaque\"><svg viewBox=\"0 0 64 16\" width=\"80\" height=\"20\"><path d=\"M10 15 32 3l22 12\" fill=\"none\" stroke=\"#1e1b20\" stroke-width=\"1.6\"/><circle cx=\"32\" cy=\"3\" r=\"2.4\" fill=\"#1e1b20\"/></svg><span class=\"ds-plaque__b\"><span lang=\"ja\" class=\"ds-plaque__k\">営業中</span><span class=\"ds-plaque__w\"><i></i>Aberta</span></span></div>",
+      "css": ".ds-plaque{display:inline-flex;flex-direction:column;align-items:center;width:150px}.ds-plaque svg{margin-bottom:-2px}.ds-plaque__b{display:grid;justify-items:center;width:100%;padding:16px 12px 12px;background:#fff;border:3px solid #1e1b20;border-radius:6px;box-shadow:0 2px 2px rgb(30 27 32/.12),0 14px 22px -14px rgb(30 27 32/.55)}.ds-plaque__k{font:900 34px/1.1 'M PLUS 2',sans-serif;letter-spacing:.12em;color:#c8352f}.ds-plaque__w{display:inline-flex;align-items:center;gap:6px;font:800 14px/1.2 'M PLUS 2',sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#1e1b20}.ds-plaque__w i{width:10px;height:10px;border-radius:50%;background:#f4b400}"
+    },
+    {
+      "name": "POP Label",
+      "kind": "card",
+      "refersTo": "pop-label",
+      "description": "Etiqueta de prateleira presa no trilho vermelho.",
+      "html": "<div class=\"ds-rail\"></div><div class=\"ds-pop\"><div><strong class=\"ds-pop__n\">Cards</strong><p>Pokémon TCG: boosters japoneses, pré‑vendas e cartas avulsas.</p></div><span class=\"ds-pop__ja\" lang=\"ja\">カード</span></div>",
+      "css": ".ds-rail{height:14px;background:linear-gradient(to bottom,#c8352f 0 58%,#7e1a14 58%)}.ds-pop{display:grid;grid-template-columns:1fr auto;gap:16px;max-width:320px;margin-left:16px;padding:24px 24px 16px;background:#fff;border-radius:0 0 2px 2px;box-shadow:0 1px 0 rgb(30 27 32/.06),0 10px 18px -12px rgb(30 27 32/.45);transform:rotate(-.8deg);transform-origin:50% 0;transition:transform .42s cubic-bezier(.16,1,.3,1);font:450 16px/1.6 'M PLUS 2',sans-serif;color:#1e1b20}.ds-pop:hover{transform:rotate(0)}.ds-pop p{margin:8px 0 0}.ds-pop__n{font:400 30px/1 Anton,sans-serif;text-transform:uppercase}.ds-pop__ja{writing-mode:vertical-rl;font:900 18px/1 'M PLUS 2',sans-serif;letter-spacing:.12em;color:#c8352f;padding-left:12px;border-left:2px dotted #d9d5d8}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Selo único, nunca em fileira.",
+      "html": "<span class=\"ds-tag\">Endereço novo</span>",
+      "css": ".ds-tag{display:inline-block;padding:2px 8px;border-radius:2px;background:#1e1b20;color:#fff;font:800 13px/1.5 'M PLUS 2',sans-serif;letter-spacing:.06em;text-transform:uppercase}"
+    },
+    {
+      "name": "Status Line",
+      "kind": "custom",
+      "refersTo": "plaque-open",
+      "description": "Frase de status que acompanha a placa.",
+      "html": "<p class=\"ds-status\"><i></i><span><b>Aberta agora</b> · fecha às 13h30 para o almoço</span></p>",
+      "css": ".ds-status{display:flex;align-items:baseline;gap:10px;margin:0;font:700 17px/1.4 'M PLUS 2',sans-serif;color:#1e1b20}.ds-status i{flex:none;width:11px;height:11px;border-radius:50%;background:#f4b400;box-shadow:0 0 0 2px rgb(30 27 32/.25)}.ds-status b{font-weight:800}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O chão da loja",
+    "overview": "O site é a Kuro Neko em miniatura, do jeito que um konbini se apresenta: uma placa vermelha em cima, o trilho vermelho da prateleira com etiquetas POP presas por clipe e, na porta, a plaquinha 営業中 / 準備中 que diz se dá para entrar. Cada peça é funcional. A placa lê o horário real de São Paulo, as etiquetas levam ao catálogo ou ao WhatsApp, o recibo é uma tabela de horários de verdade.\n\nA identidade vem da marca que já existe no Instagram: o gatinho preto no disco vermelho, o 黒猫, o vermelho, preto e branco e a caixa‑alta condensada dos posts. O sistema expande isso sem trocar nada. O fundo é o cinza claro dos posts e o vermelho pinta regiões inteiras (placa, trilho, bloco de contato). O preto fecha a página como a noite fecha a loja. A densidade é de loja de bairro: pouco texto, cada frase com um fato ou uma ação.\n\nRejeitado de propósito: o padrão da categoria (fundo escuro com neon, pétalas de sakura, grade de cards iguais) e qualquer símbolo militar japonês como enfeite.",
+    "keyCharacteristics": [
+      "Vermelho em regiões inteiras, nunca em respingos.",
+      "Etiquetas penduradas num trilho, levemente tortas, com o nome em japonês na vertical.",
+      "Placa da porta e gato que reagem ao horário real (o gato dorme quando a loja fecha).",
+      "Caixa‑alta condensada para títulos; gótica japonesa legível para texto e para kana/kanji.",
+      "Fotos reais da loja; nenhum número, preço ou depoimento inventado."
+    ],
+    "rules": [
+      {
+        "name": "The Disc Rule",
+        "body": "O Vermelho Gatinho é do logo. Campos e textos usam o Vermelho Placa, que passa no contraste com branco.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lamp Rule",
+        "body": "O amarelo aparece em um lugar só: a luz acesa de \"aberta\". Se ele estiver em outro lugar, sai.",
+        "section": "colors"
+      },
+      {
+        "name": "The Word-With-Color Rule",
+        "body": "Aberto e fechado sempre trazem a palavra (Aberta, Almoço, Fechada) junto com a cor e a forma do indicador.",
+        "section": "colors"
+      },
+      {
+        "name": "The Poster Rule",
+        "body": "Anton só em caixa‑alta e só em títulos, nomes de prateleira e endereço. Nunca em parágrafo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Seasoning Rule",
+        "body": "Japonês é tempero. Todo kana ou kanji tem o equivalente em português visível por perto, leva `lang=\"ja\"` e fica oculto para leitor de tela quando é decorativo.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hanging Rule",
+        "body": "Sombra só no que está pendurado (etiqueta, placa, recibo). Um elemento que não pendura não tem sombra.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do responder \"posso ir agora?\" na primeira tela: placa, frase de status, endereço e \"Como chegar\".",
+      "Do pintar regiões inteiras de Vermelho Placa (#c8352f) e deixar o resto em Cinza Vitrine (#f2f0f1).",
+      "Do pendurar etiquetas num trilho; elas não flutuam soltas.",
+      "Do manter contraste AA: texto 4,5:1, título grande 3:1, foco visível em todo fundo.",
+      "Do escrever horários como \"9h\", \"13h30\" em frase e \"09:00–13:30\" em tabela.",
+      "Do usar só fotos reais da loja, em 4:5, com legenda que diz o produto."
+    ],
+    "donts": [
+      "Don't usar fundo escuro com neon, partículas de sakura ou kanji espalhado como enfeite.",
+      "Don't montar grade de cards iguais com ícone, título e texto.",
+      "Don't usar texto em degradê, vidro desfocado, sombra dura deslocada ou faixa colorida lateral em cards e linhas.",
+      "Don't usar raios de sol nascente ou qualquer símbolo militar japonês como enfeite.",
+      "Don't usar emoji no lugar de ícone; ícones são SVG com traço de 2px.",
+      "Don't colocar sobretítulo (kicker) acima de um título.",
+      "Don't inventar preços, números de seguidores, notas ou depoimentos."
+    ]
+  }
+}

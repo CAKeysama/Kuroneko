@@ -1,0 +1,127 @@
+/* Kuro Neko · design tokens
+   Primitives first, then semantic roles. Components only read the roles. */
+
+@font-face {
+  font-family: "Anton";
+  src: url("../fonts/anton-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "M PLUS 2";
+  src: url("../fonts/mplus2-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Only the kana and kanji this site prints (see README to regenerate). */
+@font-face {
+  font-family: "M PLUS 2";
+  src: url("../fonts/mplus2-ja-subset.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+4E00-9FFF, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: "KN Rounded";
+  src: url("../fonts/mplusrounded-800-latin.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF;
+}
+
+@font-face {
+  font-family: "KN Rounded";
+  src: url("../fonts/mplusrounded-800-ja-subset.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+3000-30FF, U+4E00-9FFF;
+}
+
+:root {
+  /* ── Primitives ─────────────────────────────── */
+  --kn-red-logo: #d7433f;   /* Vermelho Gatinho: the logo disc, nothing else */
+  --kn-red: #c8352f;        /* Vermelho Placa: brand fields, rails, red text */
+  --kn-red-deep: #ad2318;   /* Vermelho Lacre: hover, pressed, small red text */
+  --kn-red-shade: #7e1a14;  /* Sombra do Trilho: rail lip, deep edges */
+  --kn-ink: #1e1b20;        /* Pelo: text, closed plaque, primary on paper */
+  --kn-ink-soft: #57525b;   /* Fumaça: secondary text */
+  --kn-line: #d9d5d8;       /* Risco: hairlines, dividers, leaders */
+  --kn-paper: #f2f0f1;      /* Cinza Vitrine: page ground */
+  --kn-white: #ffffff;      /* Etiqueta: labels, receipt, plaque */
+  --kn-lamp: #f4b400;       /* Lâmpada: the lit dot on the open plaque only */
+
+  /* ── Semantic roles ─────────────────────────── */
+  --bg: var(--kn-paper);
+  --surface: var(--kn-white);
+  --text: var(--kn-ink);
+  --text-muted: var(--kn-ink-soft);
+  --brand: var(--kn-red);
+  --brand-strong: var(--kn-red-deep);
+  --on-brand: var(--kn-white);
+  --rule: var(--kn-line);
+  --focus: var(--kn-ink);
+  --focus-on-brand: var(--kn-white);
+  --status-open: var(--kn-lamp);
+
+  /* ── Type ───────────────────────────────────── */
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "M PLUS 2", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-logo: "KN Rounded", "M PLUS 2", system-ui, sans-serif;
+
+  --step-display: clamp(3rem, 2.1rem + 4.6vw, 6rem);
+  --step-headline: clamp(2.25rem, 1.75rem + 2.4vw, 3.75rem);
+  --step-title: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --step-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --step-body: 1.0625rem;
+  --step-small: 0.9375rem;
+  --step-label: 0.8125rem;
+
+  --lh-display: 1;
+  --lh-tight: 1.15;
+  --lh-body: 1.6;
+
+  /* ── Space (4px grid) ───────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --measure: 62ch;
+  --container: 76rem;
+
+  /* ── Shape ──────────────────────────────────── */
+  --radius-label: 2px;
+  --radius-control: 6px;
+  --radius-round: 999px;
+  --rail-height: 0.875rem;
+
+  /* ── Depth: labels hang, nothing floats ─────── */
+  --shadow-label: 0 1px 0 rgb(30 27 32 / 0.06), 0 10px 18px -12px rgb(30 27 32 / 0.45);
+  --shadow-plaque: 0 2px 2px rgb(30 27 32 / 0.12), 0 14px 22px -14px rgb(30 27 32 / 0.55);
+  --shadow-press: inset 0 2px 0 rgb(0 0 0 / 0.18);
+
+  /* ── Motion ─────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-instant: 120ms;
+  --dur-quick: 220ms;
+  --dur-move: 420ms;
+  --dur-focal: 900ms;
+
+  --tap: 2.75rem; /* 44px minimum target */
+}

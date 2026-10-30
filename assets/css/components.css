@@ -1,0 +1,859 @@
+/* Kuro Neko · base and components
+   Reads only semantic roles from tokens.css. */
+
+/* ── Base ─────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+  scrollbar-color: var(--text-muted) var(--bg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: var(--lh-body);
+  font-weight: 450;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--brand);
+  accent-color: var(--brand);
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+img,
+svg,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.14em;
+}
+
+address {
+  font-style: normal;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.on-brand {
+  --focus: var(--focus-on-brand);
+  color: var(--on-brand);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.kn-skip {
+  position: absolute;
+  left: var(--space-3);
+  top: -4rem;
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  background: var(--text);
+  color: var(--surface);
+  font-weight: 800;
+  border-radius: var(--radius-control);
+  transition: top var(--dur-quick) var(--ease-out);
+}
+
+.kn-skip:focus {
+  top: var(--space-3);
+}
+
+[lang="ja"] {
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+}
+
+/* ── Type roles ───────────────────────────────── */
+
+.kn-display,
+.kn-headline,
+.kn-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
+.kn-display {
+  font-size: var(--step-display);
+  line-height: var(--lh-display);
+}
+
+.kn-headline {
+  font-size: var(--step-headline);
+  line-height: var(--lh-display);
+}
+
+.kn-title {
+  font-size: var(--step-title);
+  line-height: 1;
+}
+
+.kn-lead {
+  font-size: var(--step-lead);
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.kn-muted {
+  color: var(--text-muted);
+}
+
+.kn-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Logo ─────────────────────────────────────── */
+
+.kn-mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+}
+
+.kn-logo text {
+  font-family: var(--font-logo);
+  font-weight: 800;
+  fill: #fff;
+}
+
+/* ── Buttons ──────────────────────────────────── */
+
+.kn-btn {
+  --btn-bg: var(--text);
+  --btn-fg: var(--surface);
+  --btn-border: var(--btn-bg);
+  --btn-bg-hover: var(--brand);
+  --btn-fg-hover: var(--on-brand);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3rem;
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--btn-border);
+  border-radius: var(--radius-control);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: 800 1rem/1.2 var(--font-body);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-quick) var(--ease-out),
+    color var(--dur-quick) var(--ease-out),
+    border-color var(--dur-quick) var(--ease-out),
+    transform var(--dur-instant) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kn-btn svg {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+}
+
+.kn-btn:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-fg-hover);
+  border-color: var(--btn-bg-hover);
+  text-decoration: none;
+}
+
+.kn-btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-press);
+}
+
+.kn-btn[aria-disabled="true"],
+.kn-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Secondary: outlined in the current ink. */
+.kn-btn--line {
+  --btn-bg: transparent;
+  --btn-fg: currentColor;
+  --btn-border: currentColor;
+  --btn-bg-hover: var(--text);
+  --btn-fg-hover: var(--surface);
+}
+
+/* Primary on a red field: label-white with ink text. */
+.kn-btn--label {
+  --btn-bg: var(--surface);
+  --btn-fg: var(--text);
+  --btn-bg-hover: var(--text);
+  --btn-fg-hover: var(--surface);
+}
+
+/* Secondary on a red field. */
+.on-brand .kn-btn--line {
+  --btn-fg: var(--on-brand);
+  --btn-border: rgb(255 255 255 / 0.75);
+  --btn-bg-hover: var(--surface);
+  --btn-fg-hover: var(--text);
+}
+
+.kn-btn--block {
+  width: 100%;
+}
+
+.kn-btn--compact {
+  min-height: var(--tap);
+  padding-inline: 1rem;
+  font-size: 0.9375rem;
+}
+
+.kn-btn .kn-btn__done {
+  display: none;
+}
+
+.kn-btn.is-done .kn-btn__idle {
+  display: none;
+}
+
+.kn-btn.is-done .kn-btn__done {
+  display: inline;
+}
+
+/* Text link with an arrow, used inside labels. */
+.kn-link {
+  display: inline-block;
+  padding-block: 0.65rem;
+  font-weight: 800;
+  color: var(--brand-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.25em;
+}
+
+.kn-link svg {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-left: 0.3rem;
+  vertical-align: -0.2em;
+  transition: transform var(--dur-quick) var(--ease-out);
+}
+
+.kn-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── Door plaque: 営業中 / 準備中 ─────────────────
+   Hangs from a nail. data-state: open | break | closed | unknown */
+
+.kn-plaque {
+  --plaque-w: 5.75rem;
+  --plaque-bg: var(--surface);
+  --plaque-ink: var(--brand);
+  --plaque-word: var(--text);
+
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--plaque-w);
+  color: inherit;
+  text-decoration: none;
+  transform-origin: 50% 0.15rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kn-plaque__string {
+  width: 64%;
+  height: auto;
+  margin-bottom: -2px;
+  color: var(--text);
+  overflow: visible;
+}
+
+.kn-plaque__board {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.0625rem;
+  width: 100%;
+  padding: 0.55rem 0.375rem 0.35rem;
+  background: var(--plaque-bg);
+  border: 2px solid var(--text);
+  border-radius: 4px;
+  box-shadow: var(--shadow-plaque);
+}
+
+/* the two holes the string goes through */
+.kn-plaque__board::before,
+.kn-plaque__board::after {
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--text);
+}
+
+.kn-plaque__board::before {
+  left: 18%;
+}
+
+.kn-plaque__board::after {
+  right: 18%;
+}
+
+.kn-plaque__kanji {
+  font-weight: 900;
+  font-size: 1.0625rem;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  color: var(--plaque-ink);
+}
+
+.kn-plaque__word {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--plaque-word);
+  white-space: nowrap;
+}
+
+.kn-plaque__lamp {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--status-open);
+  box-shadow: 0 0 0 2px rgb(30 27 32 / 0.15);
+}
+
+.kn-plaque[data-state="break"],
+.kn-plaque[data-state="closed"] {
+  --plaque-bg: var(--text);
+  --plaque-ink: var(--surface);
+  --plaque-word: var(--surface);
+}
+
+.kn-plaque[data-state="break"] .kn-plaque__board::before,
+.kn-plaque[data-state="break"] .kn-plaque__board::after,
+.kn-plaque[data-state="closed"] .kn-plaque__board::before,
+.kn-plaque[data-state="closed"] .kn-plaque__board::after {
+  background: var(--bg);
+}
+
+.kn-plaque:not([data-state="open"]) .kn-plaque__lamp {
+  display: none;
+}
+
+.kn-plaque[data-state="unknown"] {
+  --plaque-ink: var(--text);
+}
+
+.kn-plaque--lg {
+  --plaque-w: 13.5rem;
+}
+
+.kn-plaque--lg .kn-plaque__board {
+  padding: 1.25rem 1rem 0.875rem;
+  border-width: 3px;
+  border-radius: 6px;
+  gap: 0.25rem;
+}
+
+.kn-plaque--lg .kn-plaque__board::before,
+.kn-plaque--lg .kn-plaque__board::after {
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.55rem;
+}
+
+.kn-plaque--lg .kn-plaque__kanji {
+  font-size: 2.5rem;
+  letter-spacing: 0.12em;
+}
+
+.kn-plaque--lg .kn-plaque__word {
+  font-size: 1rem;
+}
+
+.kn-plaque--lg .kn-plaque__lamp {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+@keyframes kn-swing {
+  0% { transform: rotate(11deg); }
+  22% { transform: rotate(-7deg); }
+  44% { transform: rotate(4deg); }
+  64% { transform: rotate(-2deg); }
+  82% { transform: rotate(0.8deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes kn-flip {
+  0% { transform: perspective(400px) rotateY(0); }
+  50% { transform: perspective(400px) rotateY(90deg); }
+  100% { transform: perspective(400px) rotateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kn-plaque.is-swinging {
+    animation: kn-swing 1300ms var(--ease-out) both;
+  }
+
+  .kn-plaque.is-flipping .kn-plaque__board {
+    animation: kn-flip 520ms ease-in-out both;
+  }
+}
+
+/* ── Status line ─────────────────────────────── */
+
+.kn-status {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* closed: a short bar, like a lamp switched off; open: the lit lamp */
+.kn-status__dot {
+  flex: none;
+  width: 0.75rem;
+  height: 0.2rem;
+  border-radius: 1px;
+  transform: translateY(-0.3em);
+  background: currentColor;
+  opacity: 0.7;
+}
+
+[data-store-state="open"] .kn-status__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  transform: translateY(0.05em);
+  background: var(--status-open);
+  opacity: 1;
+  box-shadow: 0 0 0 2px rgb(30 27 32 / 0.25);
+}
+
+.kn-status__main {
+  font-weight: 800;
+}
+
+/* ── Shelf rail and POP labels ───────────────── */
+
+.kn-rail {
+  position: relative;
+  height: var(--rail-height);
+  background:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.22) 0 1px, transparent 1px),
+    linear-gradient(to bottom, var(--kn-red) 0 58%, var(--kn-red-shade) 58% 100%);
+  box-shadow: 0 6px 10px -6px rgb(30 27 32 / 0.5);
+}
+
+.kn-pop {
+  --tilt: 0deg;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  background: var(--surface);
+  border-radius: 0 0 var(--radius-label) var(--radius-label);
+  box-shadow: var(--shadow-label);
+  transform: rotate(var(--tilt));
+  transform-origin: 50% 0;
+  transition: transform var(--dur-move) var(--ease-out);
+}
+
+/* the clear plastic clip holding the label on the rail */
+.kn-pop::before {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 1.5rem;
+  width: 2.25rem;
+  height: 1.1rem;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.65), rgb(255 255 255 / 0.25));
+  border: 1px solid rgb(30 27 32 / 0.12);
+}
+
+@media (hover: hover) {
+  .kn-pop:hover {
+    transform: rotate(0deg);
+  }
+}
+
+.kn-pop__body {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.kn-pop__name {
+  color: var(--text);
+}
+
+.kn-pop__text {
+  max-width: 34ch;
+}
+
+.kn-pop__ja {
+  writing-mode: vertical-rl;
+  font-weight: 900;
+  font-size: 1.125rem;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--brand);
+  padding-left: var(--space-3);
+  border-left: 2px dotted var(--rule);
+}
+
+.kn-pop__link {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: var(--space-1);
+}
+
+/* ── Receipt: opening hours ──────────────────── */
+
+.kn-receipt {
+  --zz: 0.875rem;
+  position: relative;
+  container-type: inline-size;
+  padding: var(--space-5) clamp(var(--space-3), 4vw, var(--space-5)) calc(var(--space-6) + var(--zz));
+  background: var(--surface);
+  filter: drop-shadow(0 8px 10px rgb(30 27 32 / 0.18));
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      50% / calc(var(--zz) * 2) 100%;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg)
+      50% / calc(var(--zz) * 2) 100%;
+}
+
+.kn-receipt__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
+  border-bottom: 2px dashed var(--rule);
+  font-weight: 800;
+}
+
+.kn-receipt__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.kn-receipt__table thead th {
+  padding: 0 0.5rem 0.4rem;
+  font-size: var(--step-label);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.kn-receipt__table th[scope="row"] {
+  padding: 0.55rem 0.4rem;
+  text-align: left;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.kn-receipt__table th[scope="row"] [lang="ja"] {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.875em;
+}
+
+.kn-receipt__table td {
+  padding: 0.55rem 0.4rem;
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.kn-receipt__table tbody tr + tr > * {
+  border-top: 1px dotted var(--rule);
+}
+
+.kn-receipt__table tr.is-today > * {
+  background: var(--bg);
+  border-top-color: transparent;
+  font-weight: 800;
+}
+
+.kn-receipt__table tr.is-today th::after {
+  content: "hoje";
+  display: table;
+  margin-top: 0.2rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: var(--radius-label);
+  background: var(--brand);
+  color: var(--on-brand);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 30rem) {
+  .kn-receipt__table tr.is-today th::after {
+    display: inline;
+    margin: 0 0 0 0.4rem;
+    vertical-align: 0.1em;
+  }
+}
+
+@container (max-width: 19rem) {
+  .kn-receipt__table td,
+  .kn-receipt__table th[scope="row"] {
+    padding-inline: 0.2rem;
+    font-size: 0.875rem;
+  }
+}
+
+.kn-receipt__table tr.is-today + tr > * {
+  border-top-color: transparent;
+}
+
+.kn-receipt__note {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 2px dashed var(--rule);
+  font-size: var(--step-small);
+  color: var(--text-muted);
+}
+
+/* ── Address block ───────────────────────────── */
+
+.kn-address {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.kn-address__street {
+  font-family: var(--font-display);
+  font-size: var(--step-title);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.kn-address__landmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: start;
+  margin-top: var(--space-2);
+  padding: 0.3rem 0.7rem;
+  background: var(--brand);
+  color: var(--on-brand);
+  font-weight: 800;
+  border-radius: var(--radius-label);
+}
+
+.kn-address__landmark svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ── Tag: a single sticker, never a row ──────── */
+
+.kn-tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-label);
+  background: var(--text);
+  color: var(--surface);
+  font-size: var(--step-label);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  vertical-align: 0.15em;
+}
+
+.on-brand .kn-tag {
+  background: var(--surface);
+  color: var(--brand-strong);
+}
+
+/* ── Photo from the store ───────────────────── */
+
+.kn-photo {
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.kn-photo__frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--text);
+  border-radius: var(--radius-label);
+  aspect-ratio: 4 / 5;
+}
+
+.kn-photo__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kn-photo figcaption {
+  font-size: var(--step-small);
+  line-height: 1.45;
+}
+
+.kn-photo figcaption strong {
+  display: block;
+  font-size: var(--step-body);
+}
+
+/* ── Map frame ───────────────────────────────── */
+
+.kn-map {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid var(--text);
+  border-radius: var(--radius-control);
+  background: var(--rule);
+  aspect-ratio: 4 / 3;
+}
+
+.kn-map__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  padding: var(--space-4);
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.kn-map iframe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.35) contrast(1.05);
+}
+
+/* ── Mobile action bar ───────────────────────── */
+
+.kn-actionbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--gutter) calc(var(--space-2) + env(safe-area-inset-bottom));
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+  box-shadow: 0 -8px 16px -12px rgb(30 27 32 / 0.35);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition:
+    transform var(--dur-move) var(--ease-out),
+    visibility 0s linear var(--dur-move);
+}
+
+.kn-actionbar.is-visible {
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.kn-actionbar .kn-btn {
+  min-height: 3rem;
+  padding-inline: 0.75rem;
+}
+
+@media (min-width: 64rem) {
+  .kn-actionbar {
+    display: none;
+  }
+}

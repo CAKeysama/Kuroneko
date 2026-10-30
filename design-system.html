@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kuro Neko · Design system</title>
+  <meta name="description" content="Tokens, componentes e regras do site da Kuro Neko.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#c8352f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/mplus2-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/ds.css">
+</head>
+<body class="ds">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="kn-cat" viewBox="0 0 120 140">
+        <g fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round">
+          <path d="M22 48 20 8q1-4 5-2l27 22z"/>
+          <path d="M98 48 100 8q-1-4-5-2L68 28z"/>
+          <path d="M34 90c-6 16-8 34-2 42q28 6 56 0c6-8 4-26-2-42z"/>
+          <ellipse cx="48" cy="131" rx="11" ry="7"/>
+          <ellipse cx="72" cy="131" rx="11" ry="7"/>
+          <ellipse cx="60" cy="60" rx="44" ry="35"/>
+        </g>
+        <g fill="#2b2730" stroke="#17141a" stroke-width="1.5" stroke-linejoin="round">
+          <path d="M22 48 20 8q1-4 5-2l27 22z"/>
+          <path d="M98 48 100 8q-1-4-5-2L68 28z"/>
+          <path d="M34 90c-6 16-8 34-2 42q28 6 56 0c6-8 4-26-2-42z"/>
+          <ellipse cx="48" cy="131" rx="11" ry="7"/>
+          <ellipse cx="72" cy="131" rx="11" ry="7"/>
+          <ellipse cx="60" cy="60" rx="44" ry="35" stroke="none"/>
+        </g>
+        <path fill="#e9e6ec" d="M27 38 26 15l19 14zM93 38l1-23-19 14z"/>
+        <path fill="#8c1c17" d="M34 92q26 10 52 0v6q-26 10-52 0z"/>
+        <circle cx="60" cy="104" r="5.5" fill="#d7433f" stroke="#17141a" stroke-width="1.2"/>
+        <circle cx="58.4" cy="102.4" r="1.6" fill="#fff"/>
+        <g stroke="#4b4652" stroke-width="2" fill="#0e0c10">
+          <circle cx="42" cy="64" r="14"/>
+          <circle cx="78" cy="64" r="14"/>
+        </g>
+        <g fill="#fff">
+          <circle cx="46.5" cy="58.5" r="5"/>
+          <circle cx="37.5" cy="70" r="2.2"/>
+          <circle cx="82.5" cy="58.5" r="5"/>
+          <circle cx="73.5" cy="70" r="2.2"/>
+        </g>
+        <path fill="#e79a98" d="M57 77h6l-3 3.5z"/>
+        <path d="M55 82q2.5 3 5 0 2.5 3 5 0" fill="none" stroke="#0e0c10" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18 74 2 71M18 79l-15 2M102 74l16-3M102 79l15 2" stroke="#2a262e" stroke-width="1.4" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="kn-cat-sleep" viewBox="0 0 120 140">
+        <use href="#kn-cat"/>
+        <g fill="#2b2730"><circle cx="42" cy="64" r="15.6"/><circle cx="78" cy="64" r="15.6"/></g>
+        <path d="M30 63q12 9 24 0M66 63q12 9 24 0" fill="none" stroke="#e9e6ec" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="kn-mark" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="100" fill="#d7433f"/>
+        <use href="#kn-cat" x="34" y="26" width="132" height="154"/>
+      </symbol>
+      <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 10h6M9 13.5h4"/></symbol>
+      <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></symbol>
+      <symbol id="i-nav" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 18-7-4-7 4z"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+      <symbol id="i-school" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-5 9 5"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></symbol>
+      <symbol id="kn-logo" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="100" fill="#d7433f"/>
+        <use href="#kn-cat" x="40" y="12" width="120" height="140"/>
+        <path id="kn-logo-arc" d="M17.8 117.5A84 84 0 0 0 108.8 183.5" fill="none"/>
+        <text font-family="KN Rounded, M PLUS 2, sans-serif" font-weight="800" font-style="italic" font-size="21" fill="#fff" letter-spacing="0.5"><textPath href="#kn-logo-arc" startOffset="50%" text-anchor="middle">Kuro Neko</textPath></text>
+        <text font-family="KN Rounded, M PLUS 2, sans-serif" font-weight="800" font-size="22" fill="#fff" x="150" y="146">猫</text>
+        <text font-family="KN Rounded, M PLUS 2, sans-serif" font-weight="800" font-size="22" fill="#fff" x="127" y="177">黒</text>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="kn-skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="kn-top">
+    <div class="kn-top__inner">
+      <a class="kn-brand" href="index.html" aria-label="Kuro Neko, voltar ao site">
+        <svg class="kn-mark" aria-hidden="true"><use href="#kn-mark"/></svg>
+        <span class="kn-brand__name">Kuro Neko</span>
+        <span class="kn-brand__ja" lang="ja" aria-hidden="true">黒猫</span>
+      </a>
+      <a class="kn-btn kn-btn--line kn-btn--compact ds-back" href="index.html">Ver o site<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </header>
+
+  <div class="ds-layout kn-wrap">
+    <nav class="ds-toc" aria-label="Seções do design system">
+      <ul>
+        <li><a href="#marca">Marca</a></li>
+        <li><a href="#cores">Cores</a></li>
+        <li><a href="#tipografia">Tipografia</a></li>
+        <li><a href="#espaco">Espaço e forma</a></li>
+        <li><a href="#profundidade">Profundidade e movimento</a></li>
+        <li><a href="#componentes">Componentes</a></li>
+        <li><a href="#voz">Voz e texto</a></li>
+        <li><a href="#regras">Regras</a></li>
+      </ul>
+    </nav>
+
+    <main id="conteudo" class="ds-main">
+      <header class="ds-intro">
+        <h1 class="kn-display">Design system</h1>
+        <p class="kn-lead">O mundo da Kuro Neko é o chão da própria loja: placa vermelha, trilho de prateleira, etiquetas POP e a plaquinha 営業中 na porta.</p>
+        <p>Esta página usa o mesmo CSS do site. Mude um token em <code>assets/css/tokens.css</code> e as duas páginas mudam juntas. A referência para máquinas está em <code>DESIGN.md</code>.</p>
+      </header>
+
+      <!-- ── Marca ─────────────────────────────────── -->
+      <section class="ds-section" id="marca" aria-labelledby="marca-t">
+        <h2 class="kn-headline" id="marca-t">Marca</h2>
+        <p class="ds-note">Redesenho vetorial provisório do logo do Instagram. Quando o arquivo original chegar, ele substitui este desenho; cores e regras continuam valendo.</p>
+
+        <div class="ds-brand">
+          <figure class="ds-brand__logo">
+            <svg viewBox="0 0 200 200" role="img" aria-label="Logo Kuro Neko: gatinho preto no disco vermelho"><use href="#kn-logo"/></svg>
+            <figcaption>Logo completo. Mínimo de 96px. Área livre ao redor: ¼ do diâmetro.</figcaption>
+          </figure>
+          <div class="ds-brand__side">
+            <figure class="ds-sizes">
+              <div class="ds-sizes__row">
+                <svg class="ds-size" style="--s:64px" aria-hidden="true"><use href="#kn-mark"/></svg>
+                <svg class="ds-size" style="--s:44px" aria-hidden="true"><use href="#kn-mark"/></svg>
+                <svg class="ds-size" style="--s:32px" aria-hidden="true"><use href="#kn-mark"/></svg>
+                <svg class="ds-size" style="--s:16px" aria-hidden="true"><use href="#kn-mark"/></svg>
+              </div>
+              <figcaption>Selo (sem texto) para cabeçalho, rodapé e favicon: 64, 44, 32 e 16px.</figcaption>
+            </figure>
+            <figure class="ds-cats">
+              <div class="ds-cats__row">
+                <div class="ds-cat"><svg viewBox="0 0 120 140" aria-hidden="true"><use href="#kn-cat"/></svg><span>Acordado: loja aberta</span></div>
+                <div class="ds-cat"><svg viewBox="0 0 120 140" aria-hidden="true"><use href="#kn-cat-sleep"/></svg><span>Dormindo: loja fechada</span></div>
+              </div>
+              <figcaption>O gato do site acompanha o horário real. O contorno branco é obrigatório: deixa o gato legível no vermelho e no preto.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Cores ─────────────────────────────────── -->
+      <section class="ds-section" id="cores" aria-labelledby="cores-t">
+        <h2 class="kn-headline" id="cores-t">Cores</h2>
+        <p class="ds-text">Vermelho, preto e branco, como nos posts da loja. O vermelho ocupa regiões inteiras (placa, trilho, bloco de contato), nunca pinga em detalhes.</p>
+
+        <ul class="ds-swatches">
+          <li class="ds-swatch" style="--c:var(--kn-red)"><span class="ds-swatch__chip"></span><strong>Vermelho Placa</strong><code>--kn-red · #C8352F</code><span>Campos da marca, trilho, texto vermelho. Branco por cima: 5,2:1.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-red-logo)"><span class="ds-swatch__chip"></span><strong>Vermelho Gatinho</strong><code>--kn-red-logo · #D7433F</code><span>Só o disco do logo e o 黒猫 decorativo. Não serve para texto (4,4:1).</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-red-deep)"><span class="ds-swatch__chip"></span><strong>Vermelho Lacre</strong><code>--kn-red-deep · #AD2318</code><span>Links e texto vermelho pequeno. Sobre branco: 6,9:1.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-red-shade)"><span class="ds-swatch__chip"></span><strong>Sombra do Trilho</strong><code>--kn-red-shade · #7E1A14</code><span>A borda de baixo do trilho da prateleira.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-ink)"><span class="ds-swatch__chip"></span><strong>Pelo</strong><code>--kn-ink · #1E1B20</code><span>Texto, botão principal no cinza, placa fechada. Sobre o cinza: 15:1.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-ink-soft)"><span class="ds-swatch__chip"></span><strong>Fumaça</strong><code>--kn-ink-soft · #57525B</code><span>Texto secundário. Sobre o cinza: 6,7:1.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-line)"><span class="ds-swatch__chip"></span><strong>Risco</strong><code>--kn-line · #D9D5D8</code><span>Linhas, pontilhados e divisórias. Nunca texto.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-paper)"><span class="ds-swatch__chip"></span><strong>Cinza Vitrine</strong><code>--kn-paper · #F2F0F1</code><span>Fundo da página, o mesmo cinza dos posts.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-white)"><span class="ds-swatch__chip"></span><strong>Etiqueta</strong><code>--kn-white · #FFFFFF</code><span>Etiquetas POP, recibo, placa aberta.</span></li>
+          <li class="ds-swatch" style="--c:var(--kn-lamp)"><span class="ds-swatch__chip"></span><strong>Lâmpada</strong><code>--kn-lamp · #F4B400</code><span>Só a luz da placa e do status quando a loja está aberta.</span></li>
+        </ul>
+
+        <div class="ds-rules">
+          <p><strong>A regra do disco.</strong> O Vermelho Gatinho é do logo. Campos e textos usam o Vermelho Placa, que passa no contraste com branco.</p>
+          <p><strong>A regra da lâmpada.</strong> O amarelo aparece em um único lugar: a luz acesa de “aberta”. Se estiver em outro lugar, sai.</p>
+          <p><strong>Cor nunca sozinha.</strong> Aberto e fechado sempre vêm com palavra (Aberta, Fechada, Almoço) além da cor.</p>
+        </div>
+      </section>
+
+      <!-- ── Tipografia ────────────────────────────── -->
+      <section class="ds-section" id="tipografia" aria-labelledby="tipo-t">
+        <h2 class="kn-headline" id="tipo-t">Tipografia</h2>
+        <p class="ds-text">Anton é a voz de cartaz dos posts da loja: caixa‑alta, condensada, pesada. M PLUS 2 é uma gótica japonesa com latim legível; faz o texto corrido e também o kana e o kanji, então português e japonês ficam na mesma família. Todas as fontes ficam no próprio site.</p>
+
+        <dl class="ds-type">
+          <div class="ds-type__row">
+            <dt><strong>Display</strong><code>Anton · clamp(3rem → 6rem) · 1.0</code></dt>
+            <dd class="kn-display">Cards, figures e sabores</dd>
+          </div>
+          <div class="ds-type__row">
+            <dt><strong>Headline</strong><code>Anton · clamp(2.25rem → 3.75rem) · 1.0</code></dt>
+            <dd class="kn-headline">Tem o que você procura?</dd>
+          </div>
+          <div class="ds-type__row">
+            <dt><strong>Title</strong><code>Anton · clamp(1.75rem → 2.25rem) · 1.0</code></dt>
+            <dd class="kn-title">Sabores da Ásia</dd>
+          </div>
+          <div class="ds-type__row">
+            <dt><strong>Lead</strong><code>M PLUS 2 600 · 1.125 → 1.3125rem · 1.45</code></dt>
+            <dd class="kn-lead">No Centro de Matão, em frente à ETEC.</dd>
+          </div>
+          <div class="ds-type__row">
+            <dt><strong>Body</strong><code>M PLUS 2 450 · 1.0625rem · 1.6 · até 62ch</code></dt>
+            <dd>No Japão, o gato preto é sinal de boa sorte. O nosso fica de olho na loja: quando ela fecha, ele fecha os olhos.</dd>
+          </div>
+          <div class="ds-type__row">
+            <dt><strong>Label</strong><code>M PLUS 2 800 · 0.8125rem · +0.06em · caixa‑alta</code></dt>
+            <dd><span class="kn-tag">Endereço novo</span></dd>
+          </div>
+          <div class="ds-type__row">
+            <dt><strong>Japonês</strong><code>M PLUS 2 900 · tategaki (vertical) nas etiquetas</code></dt>
+            <dd><span class="ds-ja" lang="ja">営業中 · 準備中 · カード · 冷凍食品</span></dd>
+          </div>
+        </dl>
+
+        <div class="ds-rules">
+          <p><strong>A regra do cartaz.</strong> Anton só em caixa‑alta e só em títulos, nomes de prateleira e endereço. Nunca em parágrafo.</p>
+          <p><strong>Japonês é tempero.</strong> Todo kanji ou kana tem o equivalente em português visível por perto e fica oculto para leitor de tela.</p>
+        </div>
+      </section>
+
+      <!-- ── Espaço e forma ────────────────────────── -->
+      <section class="ds-section" id="espaco" aria-labelledby="espaco-t">
+        <h2 class="kn-headline" id="espaco-t">Espaço e forma</h2>
+        <p class="ds-text">Grade de 4px. Grupos colados, seções bem separadas, mais espaço acima de um título do que abaixo.</p>
+        <ul class="ds-space">
+          <li><span style="--w:var(--space-1)"></span><code>--space-1 · 4px</code></li>
+          <li><span style="--w:var(--space-2)"></span><code>--space-2 · 8px</code></li>
+          <li><span style="--w:var(--space-3)"></span><code>--space-3 · 12px</code></li>
+          <li><span style="--w:var(--space-4)"></span><code>--space-4 · 16px</code></li>
+          <li><span style="--w:var(--space-5)"></span><code>--space-5 · 24px</code></li>
+          <li><span style="--w:var(--space-6)"></span><code>--space-6 · 32px</code></li>
+          <li><span style="--w:var(--space-7)"></span><code>--space-7 · 48px</code></li>
+          <li><span style="--w:var(--space-8)"></span><code>--space-8 · 64px</code></li>
+          <li><span style="--w:var(--space-9)"></span><code>--space-9 · 96px</code></li>
+        </ul>
+        <div class="ds-shapes">
+          <div class="ds-shape" style="--r:var(--radius-label)"><span></span><code>--radius-label · 2px</code><p>Etiquetas, tags, recibo. Papel cortado.</p></div>
+          <div class="ds-shape" style="--r:var(--radius-control)"><span></span><code>--radius-control · 6px</code><p>Botões, mapa, placa grande.</p></div>
+          <div class="ds-shape" style="--r:var(--radius-round)"><span></span><code>--radius-round</code><p>Só o disco do logo, a lâmpada e os furos da placa.</p></div>
+        </div>
+        <p class="ds-text">Margem lateral fluida <code>--gutter</code> de 16 a 40px. Conteúdo até 76rem. Alvos de toque com no mínimo 44px (<code>--tap</code>); botões têm 48px.</p>
+      </section>
+
+      <!-- ── Profundidade e movimento ──────────────── -->
+      <section class="ds-section" id="profundidade" aria-labelledby="prof-t">
+        <h2 class="kn-headline" id="prof-t">Profundidade e movimento</h2>
+        <p class="ds-text">Nada flutua. Etiquetas e placa estão penduradas, então a sombra cai para baixo, curta e macia. Botões não têm sombra: afundam 1px quando pressionados.</p>
+        <div class="ds-depth">
+          <div class="ds-depth__item"><span style="box-shadow:var(--shadow-label)"></span><code>--shadow-label</code><p>Etiqueta POP pendurada no trilho.</p></div>
+          <div class="ds-depth__item"><span style="box-shadow:var(--shadow-plaque)"></span><code>--shadow-plaque</code><p>Placa da porta.</p></div>
+        </div>
+
+        <table class="ds-table">
+          <caption class="visually-hidden">Tokens de movimento</caption>
+          <thead><tr><th scope="col">Token</th><th scope="col">Valor</th><th scope="col">Uso</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>--dur-instant</code></th><td>120ms</td><td>Botão afundando</td></tr>
+            <tr><th scope="row"><code>--dur-quick</code></th><td>220ms</td><td>Cor de hover, seta do link</td></tr>
+            <tr><th scope="row"><code>--dur-move</code></th><td>420ms</td><td>Etiqueta endireitando, barra de atalhos</td></tr>
+            <tr><th scope="row"><code>--ease-out</code></th><td>cubic-bezier(0.16, 1, 0.3, 1)</td><td>Toda chegada</td></tr>
+            <tr><th scope="row"><code>kn-swing</code></th><td>1300ms</td><td>A placa balança no prego quando o status chega</td></tr>
+            <tr><th scope="row"><code>kn-flip</code></th><td>520ms</td><td>A placa vira de 営業中 para 準備中 quando o horário muda</td></tr>
+          </tbody>
+        </table>
+        <div class="ds-demo ds-demo--center">
+          <div class="kn-plaque kn-plaque--lg" data-plaque data-plaque-fixed data-state="open" id="ds-swing">
+            <svg class="kn-plaque__string" viewBox="0 0 64 16" aria-hidden="true"><path d="M10 15 32 3l22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="3" r="2.4" fill="currentColor"/></svg>
+            <span class="kn-plaque__board"><span class="kn-plaque__kanji" lang="ja" aria-hidden="true" data-plaque-kanji>営業中</span><span class="kn-plaque__word"><span class="kn-plaque__lamp" aria-hidden="true"></span><span data-plaque-word>Aberta</span></span></span>
+          </div>
+          <div class="ds-demo__controls">
+            <button class="kn-btn kn-btn--line kn-btn--compact" type="button" data-demo="swing">Balançar</button>
+            <button class="kn-btn kn-btn--line kn-btn--compact" type="button" data-demo="flip">Virar a placa</button>
+          </div>
+        </div>
+        <p class="ds-note">Com “reduzir movimento” ligado no aparelho, a placa não balança nem gira: só troca de lado. A informação continua igual.</p>
+      </section>
+
+      <!-- ── Componentes ───────────────────────────── -->
+      <section class="ds-section" id="componentes" aria-labelledby="comp-t">
+        <h2 class="kn-headline" id="comp-t">Componentes</h2>
+
+        <article class="ds-comp" aria-labelledby="c-btn">
+          <h3 class="kn-title" id="c-btn">Botões</h3>
+          <p class="ds-text">O texto diz a ação: “Como chegar”, “Copiar endereço”. Um botão principal por área. Ícone à esquerda, sempre desenhado no mesmo traço de 2px.</p>
+          <div class="ds-demo">
+            <a class="kn-btn" href="#c-btn"><svg aria-hidden="true"><use href="#i-route"/></svg>Como chegar</a>
+            <a class="kn-btn kn-btn--line" href="#c-btn"><svg aria-hidden="true"><use href="#i-nav"/></svg>Abrir no Waze</a>
+            <button class="kn-btn kn-btn--line is-done" type="button"><svg class="kn-btn__idle" aria-hidden="true"><use href="#i-copy"/></svg><svg class="kn-btn__done" aria-hidden="true"><use href="#i-check"/></svg><span class="kn-btn__idle">Copiar endereço</span><span class="kn-btn__done">Endereço copiado</span></button>
+            <button class="kn-btn kn-btn--line" type="button" disabled>Indisponível</button>
+          </div>
+          <div class="ds-demo ds-demo--brand on-brand">
+            <a class="kn-btn kn-btn--label" href="#c-btn"><svg aria-hidden="true"><use href="#i-route"/></svg>Como chegar</a>
+            <a class="kn-btn kn-btn--line" href="#c-btn"><svg aria-hidden="true"><use href="#i-bag"/></svg>Ver catálogo</a>
+          </div>
+          <ul class="ds-specs">
+            <li><strong>Principal</strong> no cinza: fundo Pelo, texto branco. No vermelho: fundo Etiqueta, texto Pelo.</li>
+            <li><strong>Secundário</strong>: contorno de 2px na cor do texto ao redor.</li>
+            <li><strong>Hover</strong>: o principal fica vermelho; no vermelho, o principal fica preto. <strong>Pressionado</strong>: desce 1px. <strong>Foco</strong>: contorno de 3px com 3px de folga (branco sobre vermelho).</li>
+            <li><strong>Concluído</strong>: troca ícone e texto (“Endereço copiado”) e avisa o leitor de tela.</li>
+          </ul>
+          <details class="ds-code"><summary>HTML</summary><pre><code>&lt;a class="kn-btn" href="…"&gt;&lt;svg aria-hidden="true"&gt;&lt;use href="#i-route"/&gt;&lt;/svg&gt;Como chegar&lt;/a&gt;
+&lt;a class="kn-btn kn-btn--line" href="…"&gt;…&lt;/a&gt;
+&lt;!-- sobre vermelho: envolva com .on-brand e use kn-btn--label --&gt;</code></pre></details>
+        </article>
+
+        <article class="ds-comp" aria-labelledby="c-plaque">
+          <h3 class="kn-title" id="c-plaque">Placa da porta</h3>
+          <p class="ds-text">A placa que as lojas japonesas penduram na porta. Aqui ela lê o horário real de São Paulo e mostra um de quatro lados.</p>
+          <div class="ds-demo ds-plaques">
+            <figure><div class="kn-plaque kn-plaque--lg" data-state="open"><svg class="kn-plaque__string" viewBox="0 0 64 16" aria-hidden="true"><path d="M10 15 32 3l22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="3" r="2.4" fill="currentColor"/></svg><span class="kn-plaque__board"><span class="kn-plaque__kanji" lang="ja" aria-hidden="true">営業中</span><span class="kn-plaque__word"><span class="kn-plaque__lamp"></span>Aberta</span></span></div><figcaption><strong>Aberta</strong> · 営業中 eigyō‑chū</figcaption></figure>
+            <figure><div class="kn-plaque kn-plaque--lg" data-state="break"><svg class="kn-plaque__string" viewBox="0 0 64 16" aria-hidden="true"><path d="M10 15 32 3l22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="3" r="2.4" fill="currentColor"/></svg><span class="kn-plaque__board"><span class="kn-plaque__kanji" lang="ja" aria-hidden="true">準備中</span><span class="kn-plaque__word"><span class="kn-plaque__lamp"></span>Almoço</span></span></div><figcaption><strong>Almoço</strong> · 13:30 às 14:30</figcaption></figure>
+            <figure><div class="kn-plaque kn-plaque--lg" data-state="closed"><svg class="kn-plaque__string" viewBox="0 0 64 16" aria-hidden="true"><path d="M10 15 32 3l22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="3" r="2.4" fill="currentColor"/></svg><span class="kn-plaque__board"><span class="kn-plaque__kanji" lang="ja" aria-hidden="true">準備中</span><span class="kn-plaque__word"><span class="kn-plaque__lamp"></span>Fechada</span></span></div><figcaption><strong>Fechada</strong> · 準備中 junbi‑chū</figcaption></figure>
+            <figure><div class="kn-plaque kn-plaque--lg" data-state="closed"><svg class="kn-plaque__string" viewBox="0 0 64 16" aria-hidden="true"><path d="M10 15 32 3l22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="32" cy="3" r="2.4" fill="currentColor"/></svg><span class="kn-plaque__board"><span class="kn-plaque__kanji" lang="ja" aria-hidden="true">定休日</span><span class="kn-plaque__word"><span class="kn-plaque__lamp"></span>Fechada</span></span></div><figcaption><strong>Folga</strong> · 定休日 teikyū‑bi, domingo</figcaption></figure>
+          </div>
+          <div class="ds-demo ds-statuses">
+            <p class="kn-status" data-store-state="open"><span class="kn-status__dot" aria-hidden="true"></span><span><span class="kn-status__main">Aberta agora</span> · fecha às 13h30 para o almoço</span></p>
+            <p class="kn-status" data-store-state="open"><span class="kn-status__dot" aria-hidden="true"></span><span><span class="kn-status__main">Aberta agora</span> · fecha em 20 min</span></p>
+            <p class="kn-status"><span class="kn-status__dot" aria-hidden="true"></span><span><span class="kn-status__main">Fechada para o almoço</span> · volta às 14h30</span></p>
+            <p class="kn-status"><span class="kn-status__dot" aria-hidden="true"></span><span><span class="kn-status__main">Fechada agora</span> · abre segunda às 9h</span></p>
+          </div>
+          <ul class="ds-specs">
+            <li>Aberta: placa branca, kanji vermelho, lâmpada acesa. Fechada: placa preta, texto branco, lâmpada apagada (só o contorno).</li>
+            <li>A frase de status sempre acompanha a placa e diz o próximo horário. Faltando 30 min ou menos, conta os minutos.</li>
+            <li>Horário em frase: “9h”, “13h30”. Horário em tabela: “09:00–13:30”.</li>
+            <li>Teste qualquer momento com <code>?agora=2026-11-03T13:45</code> na URL do site.</li>
+          </ul>
+        </article>
+
+        <article class="ds-comp" aria-labelledby="c-pop">
+          <h3 class="kn-title" id="c-pop">Trilho e etiqueta POP</h3>
+          <p class="ds-text">A borda vermelha da prateleira com a etiqueta presa por um clipe. Cada etiqueta tem um nome em Anton, uma frase concreta, o nome em japonês na vertical e uma ação.</p>
+          <div class="ds-demo ds-demo--shelf">
+            <div class="kn-rail" aria-hidden="true"></div>
+            <div class="ds-pop-wrap">
+              <div class="kn-pop" style="--tilt:-0.8deg">
+                <div class="kn-pop__body">
+                  <h4 class="kn-title kn-pop__name">Cards</h4>
+                  <p class="kn-pop__text">Pokémon TCG: boosters japoneses, pré‑vendas e cartas avulsas.</p>
+                </div>
+                <span class="kn-pop__ja" lang="ja" aria-hidden="true">カード</span>
+                <a class="kn-link kn-pop__link" href="#c-pop">Perguntar por uma carta<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </div>
+          <ul class="ds-specs">
+            <li>Inclinação entre −1° e 1°, alternando de etiqueta para etiqueta. No hover (mouse), a etiqueta endireita.</li>
+            <li>A frase cita produtos reais vistos na loja. Sem preço inventado.</li>
+            <li>Uma etiqueta é uma etiqueta: nunca etiqueta dentro de etiqueta, nunca grade de cards iguais.</li>
+          </ul>
+          <details class="ds-code"><summary>HTML</summary><pre><code>&lt;div class="kn-rail" aria-hidden="true"&gt;&lt;/div&gt;
+&lt;div class="kn-pop" style="--tilt:-0.8deg"&gt;
+  &lt;div class="kn-pop__body"&gt;
+    &lt;h3 class="kn-title kn-pop__name"&gt;Cards&lt;/h3&gt;
+    &lt;p class="kn-pop__text"&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;span class="kn-pop__ja" lang="ja" aria-hidden="true"&gt;カード&lt;/span&gt;
+  &lt;a class="kn-link kn-pop__link" href="…"&gt;Ação&lt;svg&gt;…&lt;/svg&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre></details>
+        </article>
+
+        <article class="ds-comp" aria-labelledby="c-receipt">
+          <h3 class="kn-title" id="c-receipt">Recibo de horário</h3>
+          <p class="ds-text">Cupom de konbini com borda serrilhada. É uma tabela de verdade: dia, manhã e tarde. O dia de hoje ganha a marca vermelha e a etiqueta “hoje”.</p>
+          <div class="ds-demo ds-demo--paper">
+            <div class="kn-receipt">
+              <p class="kn-receipt__head"><span>Kuro Neko</span><span lang="ja" aria-hidden="true">営業時間</span></p>
+              <table class="kn-receipt__table">
+                <caption class="visually-hidden">Exemplo de horário</caption>
+                <thead><tr><th scope="col"><span class="visually-hidden">Dia</span></th><th scope="col">Manhã</th><th scope="col">Tarde</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Sex <span lang="ja" aria-hidden="true">金</span></th><td>09:00–13:30</td><td>14:30–18:00</td></tr>
+                  <tr class="is-today"><th scope="row">Sáb <span lang="ja" aria-hidden="true">土</span></th><td>09:00–13:30</td><td>14:30–18:00</td></tr>
+                  <tr><th scope="row">Dom <span lang="ja" aria-hidden="true">日</span></th><td colspan="2">Fechado</td></tr>
+                </tbody>
+              </table>
+              <p class="kn-receipt__note">Nota de rodapé: o que muda o horário e onde avisar.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="ds-comp" aria-labelledby="c-address">
+          <h3 class="kn-title" id="c-address">Endereço e referência</h3>
+          <p class="ds-text">Rua em Anton, bairro e cidade em texto, e a referência que todo mundo conhece em uma tag vermelha. Sempre com rota no Google Maps, Waze e “Copiar endereço”.</p>
+          <div class="ds-demo">
+            <address class="kn-address">
+              <span class="kn-address__street">Rua Cesário Motta, 631</span>
+              <span>Centro · Matão‑SP</span>
+              <span class="kn-address__landmark"><svg aria-hidden="true"><use href="#i-school"/></svg>Em frente à ETEC</span>
+            </address>
+          </div>
+        </article>
+
+        <article class="ds-comp" aria-labelledby="c-photo">
+          <h3 class="kn-title" id="c-photo">Foto da loja</h3>
+          <p class="ds-text">Só fotos reais do Instagram da loja, em 4:5, com legenda que diz o produto. Nada de banco de imagem.</p>
+          <div class="ds-demo">
+            <figure class="kn-photo ds-photo">
+              <div class="kn-photo__frame"><img src="assets/img/vitrine/ocean-bomb-zoro.jpg" width="468" height="468" alt="Lata de Ocean Bomb com o Zoro, de One Piece." loading="lazy"></div>
+              <figcaption><strong>Ocean Bomb mel e limão</strong>Na lata do Zoro, de One Piece.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="ds-comp" aria-labelledby="c-bar">
+          <h3 class="kn-title" id="c-bar">Barra de atalhos (celular)</h3>
+          <p class="ds-text">Aparece embaixo, no alcance do polegar, quando os botões do topo saem da tela. Some no rodapé e no computador. Só duas ações: chegar e conversar.</p>
+          <div class="ds-demo ds-demo--phone">
+            <nav class="kn-actionbar is-visible ds-actionbar" aria-label="Exemplo de barra de atalhos">
+              <a class="kn-btn" href="#c-bar"><svg aria-hidden="true"><use href="#i-route"/></svg>Como chegar</a>
+              <a class="kn-btn kn-btn--line" href="#c-bar"><svg aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+            </nav>
+          </div>
+        </article>
+      </section>
+
+      <!-- ── Voz ───────────────────────────────────── -->
+      <section class="ds-section" id="voz" aria-labelledby="voz-t">
+        <h2 class="kn-headline" id="voz-t">Voz e texto</h2>
+        <p class="ds-text">A voz dos posts: curta, calorosa, direta. Toda frase entrega um fato, uma ação ou um pedaço da personalidade da loja.</p>
+        <div class="ds-dodont">
+          <div class="ds-do">
+            <h3 class="ds-dodont__t">Escreva assim</h3>
+            <ul>
+              <li>“Como chegar”, “Copiar endereço”, “Perguntar o que tem hoje”</li>
+              <li>“Aberta agora · fecha às 13h30 para o almoço”</li>
+              <li>“Lay’s chinesa, sabor lámen apimentado”</li>
+              <li>“O estoque muda rápido. Pergunte antes de sair de casa.”</li>
+            </ul>
+          </div>
+          <div class="ds-dont">
+            <h3 class="ds-dodont__t">Evite</h3>
+            <ul>
+              <li>“Saiba mais”, “Clique aqui”, “Confira”</li>
+              <li>“Horário de funcionamento: consulte”</li>
+              <li>“Produtos incríveis de alta qualidade”</li>
+              <li>Números, preços ou depoimentos que a loja não confirmou</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Regras ────────────────────────────────── -->
+      <section class="ds-section" id="regras" aria-labelledby="regras-t">
+        <h2 class="kn-headline" id="regras-t">Regras</h2>
+        <div class="ds-dodont">
+          <div class="ds-do">
+            <h3 class="ds-dodont__t">Faça</h3>
+            <ul>
+              <li>Responda “posso ir agora?” no primeiro olhar: placa, frase de status e endereço no topo.</li>
+              <li>Pinte regiões inteiras de Vermelho Placa e deixe o resto no Cinza Vitrine.</li>
+              <li>Pendure as etiquetas num trilho. Elas não flutuam soltas na página.</li>
+              <li>Use as cores dos tokens e passe no contraste AA: texto 4,5:1, título grande 3:1.</li>
+              <li>Leve o japonês com o português do lado, e marque o japonês com <code>lang="ja"</code>.</li>
+            </ul>
+          </div>
+          <div class="ds-dont">
+            <h3 class="ds-dodont__t">Não faça</h3>
+            <ul>
+              <li>Fundo escuro com neon, partículas de sakura ou kanji espalhado como enfeite.</li>
+              <li>Grade de cards iguais com ícone, título e texto.</li>
+              <li>Texto em degradê, vidro desfocado ou sombra dura deslocada.</li>
+              <li>Raios de sol nascente ou qualquer símbolo militar japonês como enfeite.</li>
+              <li>Emoji no lugar de ícone. Os ícones são desenhados, traço de 2px.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="kn-foot">
+    <div class="kn-wrap kn-foot__inner ds-foot">
+      <div class="kn-foot__brand">
+        <svg class="kn-mark" aria-hidden="true"><use href="#kn-mark"/></svg>
+        <p><strong>Kuro Neko</strong><br>Design system do site · tokens em <code>assets/css/tokens.css</code></p>
+      </div>
+      <ul class="kn-foot__links">
+        <li><a href="index.html">Site</a></li>
+        <li><a href="https://www.instagram.com/kuroneko_matao/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var plaque = document.getElementById("ds-swing");
+      var open = true;
+      function replay(cls, ms) {
+        plaque.classList.remove(cls);
+        void plaque.offsetWidth;
+        plaque.classList.add(cls);
+        setTimeout(function () { plaque.classList.remove(cls); }, ms);
+      }
+      document.querySelectorAll("[data-demo]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          if (btn.getAttribute("data-demo") === "swing") return replay("is-swinging", 1400);
+          replay("is-flipping", 560);
+          setTimeout(function () {
+            open = !open;
+            plaque.setAttribute("data-state", open ? "open" : "closed");
+            plaque.querySelector("[data-plaque-kanji]").textContent = open ? "営業中" : "準備中";
+            plaque.querySelector("[data-plaque-word]").textContent = open ? "Aberta" : "Fechada";
+          }, 260);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
